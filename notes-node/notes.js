@@ -1,5 +1,3 @@
-console.log('Starting notes.js');
-
 const fs = require('fs');
 
 var fetchNotes = ()=>{
@@ -33,15 +31,13 @@ var addNote = (title,body) =>{
 };
 
 var getAll = () =>{
-  console.log('Getting all notes');
+  return fetchNotes();
 };
 
 var getNoteInternal =(title)=>{
   var notes = fetchNotes();
-  var filteredNotes = notes.filter((note) =>{
-    if(note.title === title) return note;
-  });
-  //return readNote;
+  var filteredNotes = notes.filter((note) =>note.title === title);
+  return filteredNotes[0];
 }
 
 var removeNote = (title)=>{
@@ -51,11 +47,19 @@ var removeNote = (title)=>{
   return notes.length !== filteredNotes.length;
 }
 
+var logNote = (note) =>{
+  debugger;
+  console.log('-------');
+  console.log(`Title:${note.title}`);
+  console.log(`Body:${note.body}`);
+}
+
 //If property==value, we can remove value
 // Like getAll:getAll => so removed value here
 module.exports={
   addNote,
   getAll,
   getNote:getNoteInternal,
-  removeNote
+  removeNote,
+  logNote
 };
