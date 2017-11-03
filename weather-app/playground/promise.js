@@ -13,3 +13,17 @@ somePromise.then((message) => {
 }, (errorMessage)=>{
   console.log('Error:',errorMessage);
 });
+
+
+var newPromise =new Promise((resolve,reject) => {
+    setTimeout(()=>{
+      resolve({hello:'success'});
+    },0);
+    reject({hello:'reject'});
+});
+
+newPromise.then((message)=>{
+  console.log(message);
+},(errorMessage)=>{
+    console.log(errorMessage);
+});
