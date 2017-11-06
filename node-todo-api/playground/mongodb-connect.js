@@ -1,6 +1,7 @@
 //const MongoClient = require('mongodb').MongoClient;
 const {MongoClient, ObjectID} =require('mongodb'); //Destructring
 
+var obj = new ObjectID();
 console.log(obj);
 
 var user = {
